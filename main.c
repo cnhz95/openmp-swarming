@@ -7,7 +7,7 @@
 #define v0 1.0	// Velocity
 #define eta 0.5	// Random fluctuation in angle (in radians)
 #define L 10	// Size of box
-#define R 1		// Interaction radius
+#define R 1	// Interaction radius
 #define dt 0.2	// Time step
 #ifndef Nt
 #define Nt 200	// Number of time steps
@@ -55,7 +55,7 @@ int main() {
 		vy[i] = v0 * sin(theta[i]);
 	}
 
-	// Simulation Main Loop
+	// Simulation main loop
 	for (int t = 0; t < Nt; t++) {
 		#pragma omp parallel
 		{
