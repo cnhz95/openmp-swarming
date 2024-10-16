@@ -41,7 +41,7 @@ int main() {
 
 	double start_time = omp_get_wtime();
 
-	const double R_squared = pow(R, 2);
+	const double R_SQUARED = R * R;
 	double x[N], y[N], theta[N], vx[N], vy[N];
 	double mean_theta[N];
 
@@ -55,7 +55,7 @@ int main() {
 		vy[i] = v0 * sin(theta[i]);
 	}
 
-	// Simulation Main Loop
+	// Simulation main loop
 	for (int t = 0; t < Nt; t++) {
 		#pragma omp parallel
 		{
@@ -78,7 +78,7 @@ int main() {
 			for (int i = 0; i < N; i++) {
 				sx[i] = 0.0, sy[i] = 0.0;
 				for (int j = 0; j < N; j++) {
-					if (pow((x[j] - x[i]), 2) + pow((y[j] - y[i]), 2) < R_squared) {
+					if (pow((x[j] - x[i]), 2) + pow((y[j] - y[i]), 2) < R_SQUARED) {
 						sx[i] += cos(theta[j]);
 						sy[i] += sin(theta[j]);
 					}
