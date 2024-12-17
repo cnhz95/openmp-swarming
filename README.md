@@ -1,0 +1,1 @@
+![simulation](plots/simulation.gif)
